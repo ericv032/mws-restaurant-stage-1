@@ -34,10 +34,6 @@ python -m SimpleHTTPServer 8000 or python3 -m http.server
 
 Changes can be made to the files in the app/ directory. The browser will reload the changes on each file save.
 
-// # Build & Optimize
-
-This will build and optimize the project ready for deployment. It will output to the dist/ folder
-
 ## Leaflet.js and Mapbox:
 
 This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information.
