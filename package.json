@@ -11,12 +11,13 @@
     "browser-sync": "^2.24.7",
     "browserify": "^16.2.2",
     "del": "^2.2.0",
-    "gulp": "^4.0.0",
+    "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-babel": "^6.1.1",
     "gulp-cache": "^0.4.2",
     "gulp-cssnano": "^2.0.0",
-    "gulp-eslint": "^3.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-eslint-if-fixed": "^1.0.0",
     "gulp-filter": "^4.0.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.2",
@@ -31,8 +32,19 @@
     "main-bower-files": "^2.5.0",
     "run-sequence": "^1.2.2",
     "watchify": "^3.11.0",
-    "wiredep": "^4.0.0",
-
+    "wiredep": "^4.0.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true
+    },
+    "rules": {
+      "quotes": [
+        2,
+        "single"
+      ]
+    }
   }
-
 }
