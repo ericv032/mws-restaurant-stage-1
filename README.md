@@ -5,33 +5,37 @@ A PWA Restaurant Reviews app. Udacity Mobile Web Specialist Nanodegree program.
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
-## Project Overview: Stage 2
+## Project Overview: Stage 3
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Prerequisites
+## API Server
 
-GitHub - genchau/mws-restaurant-stage-2-server
+```
+https://github.com/udacity/mws-restaurant-stage-3
+```
 
 ## Installing
 
 1. Download the server
 2. Start server by running node server on root folder of server.
 3. Download this repo.
-4. Start python server by running
+4. Install the dependencies
 ```
-python -m SimpleHTTPServer 8000
+npm install
 ```
-5. Navigate to localhost:8000 to view the app.
+5. Start python server by running
+```
+python -m SimpleHTTPServer 8000 or python3 -m http.server
+```
+6. Navigate to localhost:8000 to view the app.
 
 Changes can be made to the files in the app/ directory. The browser will reload the changes on each file save.
 
-# Build & Optimize
-```
-Gulp
-```
+// # Build & Optimize
+
 This will build and optimize the project ready for deployment. It will output to the dist/ folder
 
 ## Leaflet.js and Mapbox:
