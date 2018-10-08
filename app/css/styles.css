@@ -14,6 +14,42 @@ a {
   cursor: pointer;
   transition: all .1s ease-in-out;
 }
+#c-message {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  left: 0;
+  right:0;
+  padding-top:40%;
+  width: 100%;
+}
+#c-message span {
+   font-size:580%;
+   color:#27ae60;
+
+}
+
+#c-message p {
+margin-top: 20px;
+font-size: 30px;
+line-height: 2.0;
+
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn .5s ease-in 1 forwards;
+}
+
+.is-paused {
+  animation-play-state: paused;
+}
 
 a:hover {
   text-decoration: none;
@@ -440,6 +476,9 @@ label {
   display: block;
   padding: 10px;
 }
+form {
+  margin-top: 50px
+}
 form span {
   display:none;
 }
@@ -451,7 +490,7 @@ input {
   background-color: #f8f8f8;
   display: block;
   box-sizing: border-box;
-  width: 95%;
+  width: 100%;
   outline: none
 }
 input[type="text"] {
@@ -482,7 +521,7 @@ input[type="submit"] {
 }
 textarea {
   background-color: #f8f8f8;
-  width: 390px;
+  width: 100%;
   outline: none
   border:0;
   border: 1px solid #29bbf2;
@@ -688,11 +727,12 @@ textarea {
 
 .modal__close {
   position: absolute;
-  right: 1em;
-  top: 1em;
+  right: 2em;
+  top: 2em;
   width: 1.1em;
   height: 1.1em;
   cursor: pointer;
+  z-index: 9999;
 }
 
 .modal__close:after,
@@ -701,7 +741,7 @@ textarea {
   position: absolute;
   width: 2px;
   height: 1.5em;
-  background: #ccc;
+  background: #888;
   display: block;
   transform: rotate(45deg);
   left: 50%;
@@ -734,12 +774,13 @@ textarea {
   top:60px;
   right:0;
   cursor: pointer;
-  background-color: #3397DB;
+  background-color: #27ae60;
   display: inline-block;
   padding: 5px 15px 5px 15px;
   color: #fff;
   border-radius: 50px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: bold;
 
 }
 

@@ -5,7 +5,7 @@
       <link rel="manifest" href="./manifest.json">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' media="not all" onload="if (media != 'all')media='all'">
     <!-- Normalize.css for better cross-browser consistency -->
     <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
     <!-- Main CSS file -->
@@ -54,26 +54,25 @@
       <section id="reviews-container">
         <h2>Reviews</h2>
         <ul tabindex="0" role="reviewslist" id="reviews-list"></ul>
-        <label class="add-review-btn" for="modal-2">Add a Review</label>
+        <label class="add-review-btn" for="modal" >Add a Review</label>
       </section>
       <!-- End reviews -->
 
-      <input class="modal-state" id="modal-2" type="checkbox" />
+      <input class="modal-state" id="modal" type="checkbox" />
       <div class="modal">
-        <label class="modal__bg" for="modal-2"></label>
+        <label class="modal__bg" for="modal"></label>
         <div class="modal__inner">
-          <label class="modal__close" for="modal-2"></label>
+          <label class="modal__close" for="modal" onClick="window.location.reload();"></label>
+
 
 
           <form id="review-form">
 
-      					<div class="form-header">
+      					<div>
       						<label class="form-label" for="name">Name:</label>
-      						<input type="text" id="name" name="name" placeholder="Your Name" required/>
+      						<input type="text" id="name" name="name" placeholder="Type in your name" required/>
       					</div>
-
-      					<div class="review-body">
-      						<div class="review-rating">
+      						<div>
       							<label for="rating">Rating:</label>
       							<select id="rating" name="rating">
       								<option value="1">1</option>
@@ -85,19 +84,21 @@
       						</div>
 
       						<div>
-      							<label class="review-text-label" for="review-text">Text:</label>
-      							<textarea class="review-text" id="review-text" rows="4" name="comments" placeholder="Please tell us your opinion" required></textarea>
-      							<input class="btn-submit" type="submit" value="Submit Review">
-      						</div>
+      							<label class="review-text-label" for="reviews-comments">Comments:</label>
+      							<textarea class="review-text" id="review-text" rows="4" name="comments" placeholder="Tell us what you think..." required></textarea>
+      						<input type="submit" id="button" value="Submit" onclick="createFormSubmission()">
       					</div>
+
 
       				</form>
 
 
 
+        <div id="c-message" class='js-fade fade-in is-paused'>
+                <span>&#9786;</span>
+          <p>Your review has been submitted!</p>
 
         </div>
-      </div>
 
     </main>
     <!-- End main -->
@@ -110,14 +111,13 @@
     <!-- End footer -->
     <!-- Beginning scripts -->
     <!-- Database helpers -->
-      <script type="application/javascript" charset="utf-8" src="./scripts/idb.js"></script>
-    <script type="text/javascript" src="./scripts/dbhelper.js"></script>
-    <!-- Main javascript file -->
-    <script type="text/javascript" src="./scripts/restaurant_info.js"></script>
-      <script type="application/javascript" charset="utf-8" src="../register_sw.js"></script>
-    <script type="application/javascript" charset="utf-8" src="../sw.js"></script>
-    <!-- Google Maps -->
+    <script async type="application/javascript" charset="utf-8" src="./scripts/idb.js"></script>
+<script async type="text/javascript" src="./scripts/dbhelper.js"></script>
+<!-- Main javascript file -->
+<script async type="application/javascript" src="./scripts/restaurant_info.js"></script>
+<script async type="application/javascript" charset="utf-8" src="/register_sw.js"></script>
+<script async type="application/javascript" charset="utf-8" src="/sw.js"></script>    <!-- Google Maps -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgnzvsH0x34iOcm17dRCEC0iblNKKGHQE&libraries=places&callback=initMap"></script>
-    <!-- End scripts -->
+
   </body>
 </html>

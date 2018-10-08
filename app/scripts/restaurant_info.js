@@ -161,24 +161,48 @@ createFormSubmission = () => {
 	const form = document.getElementById('review-form');
 
 	form.addEventListener('submit', function (event) {
-		event.preventDefault();
+		event.preventDefault()
 		let review = {'restaurant_id': self.restaurant.id};
 		const formdata = new FormData(form);
-
 		for (var [key, value] of formdata.entries()) {
 			review[key] = value;
 		}
-
 		DBHelper.submitReview(review)
 			.then(data => {
 				const ul = document.getElementById('reviews-list');
 				ul.appendChild(createReviewHTML(review));
 				form.reset();
+				form.style.display = 'none';
+				//const cReview = document.getElementById('output');
+				//cReview.style.visibility = 'visible';
+
+
+				var el = document.querySelector('.js-fade');
+if (el.classList.contains('is-paused')){
+  el.classList.remove('is-paused');
+}
 			})
+
 			.catch(error => console.error(error))
 	});
 }
 
+/**
+ * Get a parameter by name from page URL.
+ */
+ getParameterByName = (name, url) => {
+ 	if (!url)
+ 		url = window.location.href;
+ 	name = name.replace(/[\[\]]/g, '\\$&');
+ 	const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),
+ 		results = regex.exec(url);
+ 	if (!results)
+ 		return null;
+ 	if (!results[2])
+ 		return '';
+ 	return decodeURIComponent(results[2].replace(/\+/g, ' '));
+
+}
 
 /**
  * Add restaurant name to the breadcrumb navigation menu
@@ -189,19 +213,3 @@ fillBreadcrumb = (restaurant = self.restaurant) => {
 	li.innerHTML = restaurant.name;
 	breadcrumb.appendChild(li);
 }
-
-/**
- * Get a parameter by name from page URL.
- */
- function getParameterByName (name, url) {
-   if (!url)
-     url = window.location.href;
-   name = name.replace(/[\[\]]/g, '\\$&');
-   const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),
-     results = regex.exec(url);
-   if (!results)
-     return null;
-   if (!results[2])
-     return '';
-   return decodeURIComponent(results[2].replace(/\+/g, ' '));
- }

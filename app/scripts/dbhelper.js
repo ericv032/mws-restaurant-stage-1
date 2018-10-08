@@ -225,12 +225,25 @@ class DBHelper {
     return (`./restaurant.html?id=${restaurant.id}`);
   }
 
-  /**
+	/**
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
-    // return (`/img/${restaurant.photograph}`);
     return (`./img/${restaurant.id}.jpg`);
+  }
+
+  /**
+   * Index image Srcset.
+   */
+  static imageSrcsetForIndex(restaurant) {
+    return (`./img/${restaurant.id}-300.jpg 1x, /img/${restaurant.id}-600_2x.jpg 2x`);
+  }
+
+  /**
+   * Restaurant image Srcset.
+   */
+  static imageSrcsetForRestaurant(restaurant) {
+    return (`./img/${restaurant.id}-300.jpg 300w, ./img/${restaurant.id}-400.jpg 400w, ./img/${restaurant.id}-600_2x.jpg 600w, ./img/${restaurant.id}-800_2x.jpg 800w`);
   }
 
 	/**
@@ -254,7 +267,7 @@ class DBHelper {
 	static submitReview(data) {
 		console.log(data);
 
-		return fetch(`${DBHelper.DATABASE_URL}/reviews`, {
+		return fetch(`${DBHelper.DATABASE_URL}/reviews/`, {
 			body: JSON.stringify(data),
 			cache: 'no-cache',
 			credentials: 'same-origin',
