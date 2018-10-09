@@ -1,8 +1,8 @@
-let restaurants,  // eslint-disable-line no-unused-vars
-  neighborhoods,  // eslint-disable-line no-unused-vars
-  cuisines; // eslint-disable-line no-unused-vars
-var map;  // eslint-disable-line no-unused-vars
-var markers = []; // eslint-disable-line no-unused-vars
+let restaurants,
+  neighborhoods,
+  cuisines;
+var map;
+var markers = [];
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -42,7 +42,7 @@ const fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
 };
 
 /**
- * Fetch all cuisines and set their HTML.
+ * Fetch all cuisines
  */
 const fetchCuisines = () => {
   DBHelper.fetchCuisines((error, cuisines) => {
@@ -56,7 +56,7 @@ const fetchCuisines = () => {
 };
 
 /**
- * Set cuisines HTML.
+ * Fill cuisines HTML
  */
 const fillCuisinesHTML = (cuisines = self.cuisines) => {
   const select = document.getElementById('cuisines-select');
@@ -70,7 +70,7 @@ const fillCuisinesHTML = (cuisines = self.cuisines) => {
 };
 
 /**
- * Initialize leaflet map, called from HTML.
+ * Initialize leaflet map
  */
 initMap = () => {
   self.newMap = L.map('map', {

@@ -1,6 +1,3 @@
-/**
- * Common database helper functions.
- */
 class DBHelper {
 
 	/**
@@ -28,7 +25,7 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch all restaurants.
+	 * Fetch all restaurants
 	 */
 	static fetchRestaurants(callback) {
 		DBHelper.dbPromise.then(db => {
@@ -45,8 +42,6 @@ class DBHelper {
 						return response.json();
 					})
 					.then(restaurants => {
-
-
 						const tx = db.transaction('all-restaurants', 'readwrite');
 						const store = tx.objectStore('all-restaurants');
 						restaurants.forEach(restaurant => {
@@ -66,18 +61,17 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch a restaurant by its ID.
+	 * Fetch a restaurant by id
 	 */
 	static fetchRestaurantById(id, callback) {
-		// fetch all restaurants with proper error handling.
 		DBHelper.fetchRestaurants((error, restaurants) => {
 			if (error) {
 				callback(error, null);
 			} else {
 				const restaurant = restaurants.find(r => r.id == id);
-				if (restaurant) { // Got the restaurant
+				if (restaurant) {
 					callback(null, restaurant);
-				} else { // Restaurant does not exist in the database
+				} else {
 					callback('Restaurant does not exist', null);
 				}
 			}
@@ -85,15 +79,13 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch restaurants by a cuisine type with proper error handling.
+	 * Fetch restaurants by a cuisine
 	 */
 	static fetchRestaurantByCuisine(cuisine, callback) {
-		// Fetch all restaurants  with proper error handling
 		DBHelper.fetchRestaurants((error, restaurants) => {
 			if (error) {
 				callback(error, null);
 			} else {
-				// Filter restaurants to have only given cuisine type
 				const results = restaurants.filter(r => r.cuisine_type == cuisine);
 				callback(null, results);
 			}
@@ -126,10 +118,12 @@ class DBHelper {
 				callback(error, null);
 			} else {
 				let results = restaurants
-				if (cuisine != 'all') { // filter by cuisine
+				// Filter by cuisine
+				if (cuisine != 'all') {
 					results = results.filter(r => r.cuisine_type == cuisine);
 				}
-				if (neighborhood != 'all') { // filter by neighborhood
+				// Filter by neighborhood
+				if (neighborhood != 'all') {
 					results = results.filter(r => r.neighborhood == neighborhood);
 				}
 				callback(null, results);
@@ -138,17 +132,14 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch all neighborhoods with proper error handling.
+	 * Fetch all neighborhoods
 	 */
 	static fetchNeighborhoods(callback) {
-		// Fetch all restaurants
 		DBHelper.fetchRestaurants((error, restaurants) => {
 			if (error) {
 				callback(error, null);
 			} else {
-				// Get all neighborhoods from all restaurants
 				const neighborhoods = restaurants.map((v, i) => restaurants[i].neighborhood)
-				// Remove duplicates from neighborhoods
 				const uniqueNeighborhoods = neighborhoods.filter((v, i) => neighborhoods.indexOf(v) == i)
 				callback(null, uniqueNeighborhoods);
 			}
@@ -156,17 +147,14 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch all cuisines with proper error handling.
+	 * Fetch All Restaurants
 	 */
 	static fetchCuisines(callback) {
-		// Fetch all restaurants
 		DBHelper.fetchRestaurants((error, restaurants) => {
 			if (error) {
 				callback(error, null);
 			} else {
-				// Get all cuisines from all restaurants
 				const cuisines = restaurants.map((v, i) => restaurants[i].cuisine_type)
-				// Remove duplicates from cuisines
 				const uniqueCuisines = cuisines.filter((v, i) => cuisines.indexOf(v) == i)
 				callback(null, uniqueCuisines);
 			}
@@ -196,7 +184,6 @@ class DBHelper {
 							if (!db) return;
 							const tx = db.transaction('all-reviews', 'readwrite');
 							const store = tx.objectStore('all-reviews');
-
 							reviews.forEach(review => {
 								store.put(review);
 							})
@@ -270,14 +257,13 @@ class DBHelper {
 		return fetch(`${DBHelper.DATABASE_URL}/reviews/`, {
 			body: JSON.stringify(data),
 			cache: 'no-cache',
-			credentials: 'same-origin',
 			headers: {
 				'content-type': 'application/json'
 			},
 			method: 'POST',
 			mode: 'cors',
 			redirect: 'follow',
-			referrer: 'no-referrer',
+			referrer: 'no-referrer'
 		})
 		.then(response => {
 			response.json()
@@ -306,6 +292,9 @@ class DBHelper {
 		});
 	}
 
+	/**
+	 * Submit Offline Reviews
+	 */
 	static submitOfflineReviews() {
 		DBHelper.dbPromise.then(db => {
 			if (!db) return;
@@ -320,7 +309,9 @@ class DBHelper {
 			})
 		})
 	}
-
+	/**
+	 * Clear Offline Reviews
+	 */
 	static clearOfflineReviews() {
 		DBHelper.dbPromise.then(db => {
 			const tx = db.transaction('offline-reviews', 'readwrite');
@@ -329,33 +320,4 @@ class DBHelper {
 		return;
 	}
 
-	static toggleFavorite(restaurant, isFavorite) {
-		fetch(`${DBHelper.DATABASE_URL}/restaurants/${restaurant.id}/?is_favorite=${isFavorite}`, {
-			method: 'PUT'
-		})
-		.then(response => {
-			return response.json();
-		})
-		.then(data => {
-			DBHelper.dbPromise.then(db => {
-				if (!db) return;
-				const tx = db.transaction('all-restaurants', 'readwrite');
-				const store = tx.objectStore('all-restaurants');
-				store.put(data)
-			});
-			return data;
-		})
-		.catch(error => {
-			restaurant.is_favorite = isFavorite;
-			DBHelper.dbPromise.then(db => {
-				if (!db) return;
-				const tx = db.transaction('all-restaurants', 'readwrite');
-				const store = tx.objectStore('all-restaurants');
-				store.put(restaurant);
-			}).catch(error => {
-				console.log(error);
-				return;
-			});
-		});
-	}
 }

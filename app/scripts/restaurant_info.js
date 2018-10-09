@@ -1,6 +1,5 @@
 let restaurant;
 var map;
-
 /**
  * Initialize Google map, called from HTML.
  */
@@ -86,11 +85,9 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 	const hours = document.getElementById('restaurant-hours');
 	for (let key in operatingHours) {
 		const row = document.createElement('tr');
-
 		const day = document.createElement('td');
 		day.innerHTML = key;
 		row.appendChild(day);
-
 		const time = document.createElement('td');
 		time.innerHTML = operatingHours[key];
 		row.appendChild(time);
@@ -108,7 +105,6 @@ const fillReviewsHTML = (error, reviews) => {
   if (error) {
     console.log('Error retrieving reviews', error);
   }
-
   const container = document.getElementById('reviews-container');
   if (!reviews) {
     const noReviews = document.createElement('p');
@@ -131,20 +127,16 @@ const createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   li.appendChild(name);
-
   const createdAt = document.createElement('p');
   createdAt.classList.add('createdAt');
   const createdDate = new Date(review.createdAt).toLocaleDateString();
   createdAt.innerHTML = `Added:<strong>${createdDate}</strong>`;
   li.appendChild(createdAt);
-
-
   const rating = document.createElement('p');
   rating.classList.add('rating');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.dataset.rating = review.rating;
   li.appendChild(rating);
-
   const comments = document.createElement('p');
   comments.classList.add('comments');
   comments.innerHTML = review.comments;
@@ -159,7 +151,6 @@ const createReviewHTML = (review) => {
  */
 createFormSubmission = () => {
 	const form = document.getElementById('review-form');
-
 	form.addEventListener('submit', function (event) {
 		event.preventDefault()
 		let review = {'restaurant_id': self.restaurant.id};
@@ -173,13 +164,9 @@ createFormSubmission = () => {
 				ul.appendChild(createReviewHTML(review));
 				form.reset();
 				form.style.display = 'none';
-				//const cReview = document.getElementById('output');
-				//cReview.style.visibility = 'visible';
-
-
-				var el = document.querySelector('.js-fade');
-if (el.classList.contains('is-paused')){
-  el.classList.remove('is-paused');
+				const el = document.querySelector('.js-fade');
+				if (el.classList.contains('is-paused')){
+  			el.classList.remove('is-paused');
 }
 			})
 
@@ -188,7 +175,7 @@ if (el.classList.contains('is-paused')){
 }
 
 /**
- * Get a parameter by name from page URL.
+ * Get a parameter by name from page URL
  */
  getParameterByName = (name, url) => {
  	if (!url)

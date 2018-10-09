@@ -541,54 +541,6 @@ textarea {
   border:0;
 }
 
-.rate:not(:checked) > input {
-  /* position: absolute; */
-  top: -9999px;
-  margin-left: -24px;
-  width: 20px;
-  padding-right: 14px;
-  z-index: -10;
-  outline: none;
-
-}
-.rate:not(:checked) > label {
-  float:right;
-  width:1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:30px;
-  color:#ccc;
-  outline: none;
-}
-.rate:not(:checked) > label::before {
-  content: '★ ';
-  position: relative;
-  top: -10px;
-  left: 2px;
-  outline: none
-}
-.rate > input:checked ~ label {
-  color: #ffc700;
-  outline: none;
-}
-.rate > input:checked:focus + label, .rate > input:focus + label {
-  outline: -webkit-focus-ring-color auto 5px;
-}
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-  color: #deb217;
-  outline: none;
-}
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
-  outline: none;
-
-}
 
 
 /* ================== Responsive ================ */
@@ -722,7 +674,13 @@ textarea {
   background: #fff;
   border-radius: 5px;
   padding: 30px;
-  height: 60%;
+  height: 65%;
+  overflow: hidden;
+
+}
+
+.modal__inner::-webkit-scrollbar { 
+  display: none;
 }
 
 .modal__close {
