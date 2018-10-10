@@ -22,6 +22,7 @@ a {
   right:0;
   padding-top:40%;
   width: 100%;
+  z-index: 9999;
 }
 #c-message span {
    font-size:580%;
@@ -636,7 +637,7 @@ textarea {
   text-align: left;
   background: rgba(0,0,0, .5);
   transition: opacity .25s ease;
-  z-index: 9999 !important;
+  z-index: 9999;
 }
 
 .modal__bg {
@@ -646,6 +647,7 @@ textarea {
   bottom: 0;
   left: 0;
   cursor: pointer;
+
 }
 
 .modal-state {
@@ -676,11 +678,7 @@ textarea {
   padding: 30px;
   height: 65%;
   overflow: hidden;
-
-}
-
-.modal__inner::-webkit-scrollbar { 
-  display: none;
+  z-index: 9999;
 }
 
 .modal__close {
