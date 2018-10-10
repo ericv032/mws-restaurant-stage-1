@@ -1,9 +1,8 @@
 # Mobile Web Specialist Certification Course
 
-A Progressive Web App (PWA) Restaurant Reviews app. Udacity Mobile Web Specialist Nanodegree program.
+Restaurant Reviews app, a progressive web app (PWA). Udacity Mobile Web Specialist Nanodegree program.
 
 ---
-#### _Three Stage Course Material Project - Restaurant Reviews_
 
 ## Project Overview: Stage 3
 
