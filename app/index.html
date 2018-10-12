@@ -9,10 +9,6 @@
     <link  rel="preload"
   as="style"
   onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' type='text/css'>
-    <!-- Normalize.css for better cross-browser consistency -->
-    <link  rel="preload"
-  as="style"
-  onload="this.rel = 'stylesheet'" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
     <link rel="stylesheet" href="./css/styles.css">
     <link  rel="preload"
   as="style"
@@ -20,20 +16,20 @@
     <title>Restaurant Reviews</title>
   </head>
   <body>
-    <header>
+    <header role="banner">
       <nav>
         <h1><a tabindex="0" href=".">Restaurant Reviews</a></h1>
       </nav>
     </header>
-    <main class="maincontent">
-      <section id="map-container">
+    <main class="maincontent" role="main">
+      <section id="map-container" role="application" aria-label="Google Map">
         <div tabindex="0" id="map"></div>
       </section>
       <section>
         <div tabindex="0" class="filter-options">
-          <section>
+          <section aria-labelledby="filter-label" >
             <h2>Filter Results: </h2>
-            <select aria-label="neighborhoods" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+            <select aria-label="neighborhoods" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" role="region">
           <option value="all">All Neighborhoods</option>
         </select>
             <select aria-label="cuisines" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
@@ -43,7 +39,7 @@
         </div><!-- .filter-options -->
       </section>
       <section class="content-container">
-        <ul tabindex="0" id="restaurants-list"></ul>
+        <ul tabindex="0" id="restaurants-list" role="region" aria-label="restaurants list"></ul>
       </section><!-- .contetent-container -->
     </main>
     <footer id="footer">

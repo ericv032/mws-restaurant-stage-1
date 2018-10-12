@@ -8,10 +8,6 @@
   <link  rel="preload"
   as="style"
   onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' type='text/css'>
-    <!-- Normalize.css for better cross-browser consistency -->
-    <link rel="preload"
-    as="style"
-    onload="this.rel = 'stylesheet'" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" />
     <!-- Main CSS file -->
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
    <link  rel="preload"
@@ -27,9 +23,12 @@
         <h1><a tabindex="0" role="Restaurantreviews" href="./">Restaurant Reviews</a></h1>
       </nav>
       <!-- Beginning breadcrumb -->
+
       <ul id="breadcrumb">
         <li><a tabindex="0" href="./">Home</a></li>
       </ul>
+
+
       <!-- End breadcrumb -->
       <!-- End nav -->
     </header>
@@ -68,7 +67,7 @@
       <div class="modal">
         <label class="modal__bg" for="modal"></label>
         <div class="modal__inner">
-          <label class="modal__close" for="modal" onClick="window.location.reload();"></label>
+          <label class="modal__close" for="modal"></label>
 
 
 
@@ -79,17 +78,18 @@
       						<input type="text" id="name" name="name" placeholder="Type in your name" required/>
       					</div>
       						<div>
-      							<label for="rating">Rating:</label>
-      							<select id="rating" name="rating">
-      								<option value="1">1</option>
-      								<option value="2">2</option>
-      								<option value="3" selected>3</option>
-      								<option value="4">4</option>
-      								<option value="5">5</option>
-      							</select>
+                    	<label class="review-rate-label" for="reviews-ratings">Please Rate:</label>
+                    <fieldset class="rating">
+      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+  </fieldset>
+
       						</div>
 
-      						<div>
+      						<div class="form-comment">
       							<label class="review-text-label" for="reviews-comments">Comments:</label>
       							<textarea class="review-text" id="review-text" rows="4" name="comments" placeholder="Tell us what you think..." required></textarea>
       						<input type="submit" id="button" value="Submit" onclick="createFormSubmission()">

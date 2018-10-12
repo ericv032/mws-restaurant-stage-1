@@ -102,8 +102,8 @@ h4 {
 }
 
 td,
-th,
-  {
+th {
+
   font-family: 'OpenSans', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #333;
@@ -357,6 +357,14 @@ nav h1 a {
   line-height: 1.1;
 }
 
+#review-form div {
+  display: block;
+  margin-bottom: 20px;
+}
+#review-form .form-comment {
+  margin-top: 50px;
+}
+
 #restaurant-img {
   width: 100%;
   border-top-left-radius: 15px;
@@ -412,7 +420,7 @@ nav h1 a {
   overflow: hidden;
   position: relative;
   border-radius: 10px;
-  padding: 40px;
+  padding: 30px;
   margin: 30px 0;
   font-size: 16px;
   font-weight: bold;
@@ -420,52 +428,61 @@ nav h1 a {
 
 #reviews-list li p {
   line-height: 2;
+  display: block;
 }
 
 #reviews-list li p:last-child {
   font-weight: normal;
-  margin-top: 20px;
-}
-/* Rating Star Widgets Style */
-.rating-stars ul {
-  list-style-type:none;
-  padding:0;
-
-  -moz-user-select:none;
-  -webkit-user-select:none;
-}
-.rating-stars ul > li.star {
-  display:inline-block;
-
-}
-/* Idle State of the stars */
-.rating-stars ul > li.star > i.fa {
-  font-size:2.5em; /* Change the size of the stars */
-  color:#ccc; /* Color on idle state */
+  margin: 60px 0 20px 0;
 }
 
-/* Hover state of the stars */
-.rating-stars ul > li.star.hover > i.fa {
-  color:#FFCC36;
+/*
+Credit rating stars source code to https://jsfiddle.net/leaverou/CGP87/
+*/
+
+.rating {
+    float:left;
+    background: none;
+    border:0;
 }
 
-/* Selected state of the stars */
-.rating-stars ul > li.star.selected > i.fa {
-  color:#FF912C;
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
 }
 
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
 
-.rate {
-  height: 36px;
-  display: inline-flex;
-  flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-end;
 }
-#review-form .rate > label {
-  margin-bottom: 0;
-  margin-top: -5px;
-  height: 30px;
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: gold;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: gold;
 }
 
 form {
@@ -476,6 +493,7 @@ form {
 label {
   display: block;
   padding: 10px;
+  background: none;
 }
 form {
   margin-top: 50px
@@ -483,7 +501,7 @@ form {
 form span {
   display:none;
 }
-p {
+form p {
   margin: 0 0 25px 0;
   position: relative;
 }

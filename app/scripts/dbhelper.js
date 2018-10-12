@@ -17,9 +17,9 @@ class DBHelper {
 			return Promise.resolve();
 		} else {
 			return idb.open('restaurants', 1, function (upgradeDb) {
-				upgradeDb.createObjectStore('all-restaurants', { keyPath: 'id' });
-				upgradeDb.createObjectStore('all-reviews', { keyPath: 'id' });
-				upgradeDb.createObjectStore('offline-reviews', { keyPath: 'updatedAt' });
+				upgradeDb.createObjectStore('AllRestaurants', { keyPath: 'id' });
+				upgradeDb.createObjectStore('AllReviews', { keyPath: 'id' });
+				upgradeDb.createObjectStore('OfflineReviews', { keyPath: 'updatedAt' });
 			});
 		}
 	}
@@ -31,8 +31,8 @@ class DBHelper {
 		DBHelper.dbPromise.then(db => {
 			if (!db) return;
 
-			const tx = db.transaction('all-restaurants');
-			const store = tx.objectStore('all-restaurants');
+			const tx = db.transaction('AllRestaurants');
+			const store = tx.objectStore('AllRestaurants');
 
 			store.getAll().then(results => {
 				if (results.length === 0) {
@@ -42,8 +42,8 @@ class DBHelper {
 						return response.json();
 					})
 					.then(restaurants => {
-						const tx = db.transaction('all-restaurants', 'readwrite');
-						const store = tx.objectStore('all-restaurants');
+						const tx = db.transaction('AllRestaurants', 'readwrite');
+						const store = tx.objectStore('AllRestaurants');
 						restaurants.forEach(restaurant => {
 							store.put(restaurant);
 						})
@@ -168,8 +168,8 @@ class DBHelper {
 		DBHelper.dbPromise.then(db => {
 			if (!db) return;
 
-			const tx = db.transaction('all-reviews');
-			const store = tx.objectStore('all-reviews');
+			const tx = db.transaction('AllReviews');
+			const store = tx.objectStore('AllReviews');
 			store.getAll().then(results => {
 
 				if (results && results.length > 0) {
@@ -182,8 +182,8 @@ class DBHelper {
 					.then(reviews => {
 						this.dbPromise.then(db => {
 							if (!db) return;
-							const tx = db.transaction('all-reviews', 'readwrite');
-							const store = tx.objectStore('all-reviews');
+							const tx = db.transaction('AllReviews', 'readwrite');
+							const store = tx.objectStore('AllReviews');
 							reviews.forEach(review => {
 								store.put(review);
 							})
@@ -270,8 +270,8 @@ class DBHelper {
 				.then(data => {
 					this.dbPromise.then(db => {
 						if (!db) return;
-						const tx = db.transaction('all-reviews', 'readwrite');
-						const store = tx.objectStore('all-reviews');
+						const tx = db.transaction('AllReviews', 'readwrite');
+						const store = tx.objectStore('AllReviews');
 						store.put(data);
 					});
 					return data;
@@ -283,8 +283,8 @@ class DBHelper {
 
 			this.dbPromise.then(db => {
 				if (!db) return;
-				const tx = db.transaction('offline-reviews', 'readwrite');
-				const store = tx.objectStore('offline-reviews');
+				const tx = db.transaction('OfflineReviews', 'readwrite');
+				const store = tx.objectStore('OfflineReviews');
 				store.put(data);
 				console.log('Review stored offline in IDB');
 			});
@@ -298,10 +298,10 @@ class DBHelper {
 	static submitOfflineReviews() {
 		DBHelper.dbPromise.then(db => {
 			if (!db) return;
-			const tx = db.transaction('offline-reviews');
-			const store = tx.objectStore('offline-reviews');
-			store.getAll().then(offlineReviews => {
-				console.log(offlineReviews);
+			const tx = db.transaction('OfflineReviews');
+			const store = tx.objectStore('OfflineReviews');
+			store.getAll().then(OfflineReviews => {
+				console.log(OfflineReviews);
 				offlineReviews.forEach(review => {
 					DBHelper.submitReview(review);
 				})
@@ -314,8 +314,8 @@ class DBHelper {
 	 */
 	static clearOfflineReviews() {
 		DBHelper.dbPromise.then(db => {
-			const tx = db.transaction('offline-reviews', 'readwrite');
-			const store = tx.objectStore('offline-reviews').clear();
+			const tx = db.transaction('OfflineReviews', 'readwrite');
+			const store = tx.objectStore('fflineReviews').clear();
 		})
 		return;
 	}
