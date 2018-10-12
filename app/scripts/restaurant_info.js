@@ -166,10 +166,10 @@ createFormSubmission = () => {
 				form.style.display = 'none';
 				const el = document.querySelector('.js-fade');
 				if (el.classList.contains('is-paused')){
-  			el.classList.remove('is-paused');
-}
-			})
-
+	  		el.classList.remove('is-paused');
+				}
+			}
+		)
 			.catch(error => console.error(error))
 	});
 }
