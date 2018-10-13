@@ -109,6 +109,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 gulp.task('serve', () => {
   runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
     browserSync.init({
+      online: true,
       notify: false,
       port: 9000,
       server: {
@@ -134,6 +135,7 @@ gulp.task('serve', () => {
 
 gulp.task('serve:dist', ['default'], () => {
   browserSync.init({
+    online: true,
     notify: false,
     port: 9000,
     server: {

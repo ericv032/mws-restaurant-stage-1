@@ -1,14 +1,18 @@
-let restaurant;
 var map;
+let restaurant;
+
 /**
  * Initialize Google map, called from HTML.
  */
+
+
 window.initMap = () => {
 	fetchRestaurantFromURL((error, restaurant) => {
 		if (error) { // Got an error!
 			console.error(error);
 		} else {
 			self.map = new google.maps.Map(document.getElementById('map'), {
+				//map.style('display', 'none');
 				zoom: 16,
 				center: restaurant.latlng,
 				scrollwheel: false
@@ -91,11 +95,9 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 		const time = document.createElement('td');
 		time.innerHTML = operatingHours[key];
 		row.appendChild(time);
-
 		hours.appendChild(row);
 	}
 }
-
 /**
  * Create all reviews HTML and add them to the webpage.
  */
@@ -134,7 +136,7 @@ const createReviewHTML = (review) => {
   li.appendChild(createdAt);
   const rating = document.createElement('p');
   rating.classList.add('rating');
-  rating.innerHTML = `Rating: ${review.rating}`;
+  rating.innerHTML = `Rating: ${review.rating} out of 5`;
   rating.dataset.rating = review.rating;
   li.appendChild(rating);
   const comments = document.createElement('p');
@@ -144,8 +146,6 @@ const createReviewHTML = (review) => {
 
   return li;
 };
-
-
 /**
  * Form submission
  */

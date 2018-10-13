@@ -310,7 +310,8 @@ nav h1 a {
   background-color: #3397DB;
   color: #fff;
   display: inline-block;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: bold;
   margin: 40px 30px;
   padding: 10px 30px 10px;
   text-align: center;
@@ -429,11 +430,17 @@ nav h1 a {
 #reviews-list li p {
   line-height: 2;
   display: block;
+  margin-bottom: 10px;
+  width: 150px;
+  border-radius: 50px
+
 }
 
 #reviews-list li p:last-child {
   font-weight: normal;
   margin: 60px 0 20px 0;
+  background: none;
+  width: auto;
 }
 
 /*
@@ -753,8 +760,9 @@ textarea {
   padding: 5px 15px 5px 15px;
   color: #fff;
   border-radius: 50px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
+  text-transform: uppercase;
 
 }
 

@@ -59,7 +59,6 @@ self.addEventListener('fetch', (event) => {
 	const requestUrl = new URL(event.request.url);
 	// console.log(`Log request url: ${requestUrl.pathname}`);
 	if (requestUrl.pathname.startsWith('/img/')) {
-		// console.log(`Log img request url: ${requestUrl.pathname.startsWith('/img/')}`);
 		event.respondWith(serveImage(event.request));
 		return;
 	}
@@ -125,8 +124,8 @@ self.addEventListener('sync', function (event) {
 				for (let i = 0; i < request.result.length; i++) {
 					fetch(`http://localhost:1337/reviews/`, {
 						body: JSON.stringify(request.result[i]),
-						cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-						credentials: 'same-origin', // include, same-origin, *omit
+						cache: 'no-cache',
+						credentials: 'same-origin',
 						headers: {
 							'content-type': 'application/json'
 						},

@@ -1,18 +1,13 @@
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="theme-color" content="#252831"/>
-      <link rel="manifest" href="./manifest.json">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link  rel="preload"
-  as="style"
-  onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' type='text/css'>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#252831" />
+    <link rel="manifest" href="./manifest.json">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Main CSS file -->
     <link rel="stylesheet" href="./css/styles.css" type="text/css">
-   <link  rel="preload"
-  as="style"
-  onload="this.rel = 'stylesheet'" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'" href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' type='text/css'>
     <title>Restaurant Info</title>
   </head>
   <body class="inside">
@@ -23,12 +18,9 @@
         <h1><a tabindex="0" role="Restaurantreviews" href="./">Restaurant Reviews</a></h1>
       </nav>
       <!-- Beginning breadcrumb -->
-
       <ul id="breadcrumb">
         <li><a tabindex="0" href="./">Home</a></li>
       </ul>
-
-
       <!-- End breadcrumb -->
       <!-- End nav -->
     </header>
@@ -59,7 +51,7 @@
       <section id="reviews-container">
         <h2>Reviews</h2>
         <ul tabindex="0" role="reviewslist" id="reviews-list"></ul>
-        <label class="add-review-btn" for="modal" >Add a Review</label>
+        <label class="add-review-btn" for="modal">Add a Review</label>
       </section>
       <!-- End reviews -->
 
@@ -68,44 +60,33 @@
         <label class="modal__bg" for="modal"></label>
         <div class="modal__inner">
           <label class="modal__close" for="modal"></label>
-
-
-
           <form id="review-form">
-
-      					<div>
-      						<label class="form-label" for="name">Name:</label>
-      						<input type="text" id="name" name="name" placeholder="Type in your name" required/>
-      					</div>
-      						<div>
-                    	<label class="review-rate-label" for="reviews-ratings">Please Rate:</label>
-                    <fieldset class="rating">
-      <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
-      <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
-      <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
-      <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
-      <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
-  </fieldset>
-
-      						</div>
-
-      						<div class="form-comment">
-      							<label class="review-text-label" for="reviews-comments">Comments:</label>
-      							<textarea class="review-text" id="review-text" rows="4" name="comments" placeholder="Tell us what you think..." required></textarea>
-      						<input type="submit" id="button" value="Submit" onclick="createFormSubmission()">
-      					</div>
-
-
-      				</form>
-              <div id="c-message" class='js-fade fade-in is-paused'>
-                      <span>&#9786;</span>
-                <p>Your review has been submitted!</p>
-
-              </div>
+            <div>
+              <label class="form-label" for="name">Name:</label>
+              <input type="text" id="name" name="name" placeholder="Type in your name" required/>
             </div>
-
-
-  </div>
+            <div>
+              <label class="review-rate-label" for="reviews-ratings">Please Rate:</label>
+              <fieldset class="rating">
+                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+                <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+                <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+                <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+                <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+              </fieldset>
+            </div>
+            <div class="form-comment">
+              <label class="review-text-label" for="reviews-comments">Comments:</label>
+              <textarea class="review-text" id="review-text" rows="4" name="comments" placeholder="Tell us what you think..." required></textarea>
+              <input type="submit" id="button" value="Submit" onclick="createFormSubmission()">
+            </div>
+          </form>
+          <div id="c-message" class='js-fade fade-in is-paused'>
+            <span>&#9786;</span>
+            <p>Your review has been submitted!</p>
+          </div>
+        </div>
+      </div>
     </main>
     <!-- End main -->
     <!-- Beginning footer -->
@@ -116,12 +97,11 @@
     <!-- Beginning scripts -->
     <!-- Database helpers -->
     <script type="application/javascript" charset="utf-8" src="./scripts/idb.js"></script>
-<script type="text/javascript" src="./scripts/dbhelper.js"></script>
-<!-- Main javascript file -->
-<script type="application/javascript" src="./scripts/restaurant_info.js"></script>
-<script type="application/javascript" charset="utf-8" src="/register_sw.js"></script>
-<script type="application/javascript" charset="utf-8" src="/sw.js"></script>    <!-- Google Maps -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgnzvsH0x34iOcm17dRCEC0iblNKKGHQE&libraries=places&callback=initMap"></script>
-
+    <script type="text/javascript" src="./scripts/dbhelper.js"></script>
+    <script type="application/javascript" src="./scripts/restaurant_info.js"></script>
+    <script type="application/javascript" charset="utf-8" src="/register_sw.js"></script>
+    <script type="application/javascript" charset="utf-8" src="/sw.js"></script>
+    <!-- Google Maps -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmHibja0CKoSQjAt3mWiNVs-tEIgiArPw&libraries=places&callback=initMap"></script>
   </body>
 </html>

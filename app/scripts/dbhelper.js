@@ -1,5 +1,4 @@
 class DBHelper {
-
 	/**
 	 * Database URL.
 	 * Change this to restaurants.json file location on your server.
@@ -8,9 +7,8 @@ class DBHelper {
 		const port = 1337 // Change this to your server port
 		return `http://localhost:${port}`
 	}
-
 	/**
-	 * IndexedDB Promised
+	 * IndexedDB
 	 */
 	static get dbPromise() {
 		if (!navigator.serviceWorker) {
@@ -23,10 +21,10 @@ class DBHelper {
 			});
 		}
 	}
-
 	/**
 	 * Fetch all restaurants
 	 */
+
 	static fetchRestaurants(callback) {
 		DBHelper.dbPromise.then(db => {
 			if (!db) return;
@@ -59,7 +57,6 @@ class DBHelper {
 
 		});
 	}
-
 	/**
 	 * Fetch a restaurant by id
 	 */
@@ -118,11 +115,9 @@ class DBHelper {
 				callback(error, null);
 			} else {
 				let results = restaurants
-				// Filter by cuisine
 				if (cuisine != 'all') {
 					results = results.filter(r => r.cuisine_type == cuisine);
 				}
-				// Filter by neighborhood
 				if (neighborhood != 'all') {
 					results = results.filter(r => r.neighborhood == neighborhood);
 				}
@@ -130,7 +125,6 @@ class DBHelper {
 			}
 		});
 	}
-
 	/**
 	 * Fetch all neighborhoods
 	 */
@@ -145,7 +139,6 @@ class DBHelper {
 			}
 		});
 	}
-
 	/**
 	 * Fetch All Restaurants
 	 */
@@ -160,7 +153,6 @@ class DBHelper {
 			}
 		});
 	}
-
 	/**
 	 * Fetch all reviews for a restaurant
 	 */
@@ -204,35 +196,18 @@ class DBHelper {
     .then(data => callback(null, data))
     .catch(err => callback(err, null));
 }
-
   /**
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
     return (`./restaurant.html?id=${restaurant.id}`);
   }
-
 	/**
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
     return (`./img/${restaurant.id}.jpg`);
   }
-
-  /**
-   * Index image Srcset.
-   */
-  static imageSrcsetForIndex(restaurant) {
-    return (`./img/${restaurant.id}-300.jpg 1x, /img/${restaurant.id}-600_2x.jpg 2x`);
-  }
-
-  /**
-   * Restaurant image Srcset.
-   */
-  static imageSrcsetForRestaurant(restaurant) {
-    return (`./img/${restaurant.id}-300.jpg 300w, ./img/${restaurant.id}-400.jpg 400w, ./img/${restaurant.id}-600_2x.jpg 600w, ./img/${restaurant.id}-800_2x.jpg 800w`);
-  }
-
 	/**
 	 * Map marker for a restaurant.
 	 */
@@ -247,7 +222,6 @@ class DBHelper {
 		);
 		return marker;
 	}
-
 	/**
 	 * Submit Review
 	 */
