@@ -90,7 +90,7 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch restaurants by a neighborhood with proper error handling.
+	 * Fetch restaurants by a neighborhood with proper error handling
 	 */
 	static fetchRestaurantByNeighborhood(neighborhood, callback) {
 		// Fetch all restaurants
@@ -98,7 +98,6 @@ class DBHelper {
 			if (error) {
 				callback(error, null);
 			} else {
-				// Filter restaurants to have only given neighborhood
 				const results = restaurants.filter(r => r.neighborhood == neighborhood);
 				callback(null, results);
 			}
@@ -106,7 +105,7 @@ class DBHelper {
 	}
 
 	/**
-	 * Fetch restaurants by a cuisine and a neighborhood with proper error handling.
+	 * Fetch restaurants by a cuisine and a neighborhood with proper error handling
 	 */
 	static fetchRestaurantByCuisineAndNeighborhood(cuisine, neighborhood, callback) {
 		// Fetch all restaurants

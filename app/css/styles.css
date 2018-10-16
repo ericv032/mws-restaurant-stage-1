@@ -162,7 +162,7 @@ header {
 
 #footer {
   background-color: #444;
-  color: #aaa;
+  color: #f1f1f1;
   font-size: 8pt;
   letter-spacing: 1px;
   padding: 25px;
@@ -172,27 +172,28 @@ header {
 
 /* ====================== Navigation ====================== */
 
-nav {
+nav.header {
   width: 100%;
   padding: 30px 0;
   background-color: #252831;
 }
 
-nav h1 a {
+nav.header h1 a {
   color: #3397DB;
   letter-spacing: 10px;
   text-transform: uppercase;
 }
 
 #breadcrumb {
+  background-color: #e6e4e4;
   padding: 10px 40px 16px;
   list-style: none;
-  background-color: #e6e4e4;
   font-size: 17px;
   margin: 0;
   width: calc(50% - 80px);
   display: block;
   text-align: left;
+
 }
 
 /* Display list items side by side */
@@ -229,6 +230,10 @@ nav h1 a {
   height: 400px;
   width: 100%;
   background-color: #ccc;
+}
+
+.map img {
+  width: 100%
 }
 
 /* ====================== Restaurant Filtering ====================== */
@@ -567,88 +572,6 @@ textarea {
   border:0;
 }
 
-
-
-/* ================== Responsive ================ */
-
-@media screen and (max-width: 850px) {
-  #restaurants-list {
-    text-align: center;
-  }
-  #restaurants-list li {
-    margin: 4% 2.8%;
-    width: 43%;
-  }
-  .inside header {
-    position: relative;
-    width: auto;
-    z-index: 1000;
-  }
-  .inside #breadcrumb {
-    width: auto;
-  }
-  .inside #map-container {
-    height: 180px;
-    position: relative;
-    width: 100%;
-    margin: -80px 0;
-  }
-  .filter-options h2 {
-    display: none;
-  }
-  #restaurant-container {
-    border-bottom: 1px solid #d9d9d9;
-    width: auto;
-    margin: 200px 40px 0 40px;
-    padding-bottom: 60px;
-  }
-  #reviews-container {
-    padding: 60px 0;
-    width: auto !important;
-    margin: 0 40px;
-    position: relative;
-  }
-  .inside #footer {
-    bottom: 0;
-    position: relative;
-    width: auto !important;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .inside h2 {
-    font-size: 150%;
-  }
-  nav {
-    width: auto;
-    padding: 15px 20px 20px 20px;
-  }
-  nav h1 a {
-    font-size: 50% !important;
-    letter-spacing: 6px;
-    margin: 0;
-  }
-  #restaurants-list li {
-    margin: 4% 0;
-    width: 100% !important;
-  }
-  #map {
-    height: 150px;
-    width: 100%;
-    background-color: #ccc;
-  }
-  .filter-options {
-    display: block;
-    text-align: center;
-  }
-  .filter-options select {
-    width: 40.6%;
-  }
-}
-
-
-
-
 /* [Object] Modal
  * =============================== */
 .modal {
@@ -738,18 +661,6 @@ textarea {
 .modal__close:before {
   transform: rotate(-45deg);
 }
-
-@media screen and (max-width: 768px) {
-
-  .modal__inner {
-    width: 90%;
-    height: 90%;
-    box-sizing: border-box;
-  }
-}
-
-
-
 .add-review-btn {
   position: absolute;
   top:60px;
@@ -794,4 +705,89 @@ p img {
   height: auto;
   float: left;
   margin: 0 1em 1em 0;
+}
+
+/* ================== Responsive ================ */
+
+@media screen and (max-width: 850px) {
+  #restaurants-list {
+    text-align: center;
+  }
+  #restaurants-list li {
+    margin: 4% 2.8%;
+    width: 43%;
+  }
+  .inside header {
+    position: relative;
+    width: auto;
+    z-index: 1000;
+  }
+  .inside #breadcrumb {
+    width: auto;
+  }
+  .inside #map-container {
+    height: 180px;
+    position: relative;
+    width: 100%;
+    margin: -80px 0;
+  }
+  .filter-options h2 {
+    display: none;
+  }
+  #restaurant-container {
+    border-bottom: 1px solid #d9d9d9;
+    width: auto;
+    margin: 200px 40px 0 40px;
+    padding-bottom: 60px;
+  }
+  #reviews-container {
+    padding: 60px 0;
+    width: auto !important;
+    margin: 0 40px;
+    position: relative;
+  }
+  .inside #footer {
+    bottom: 0;
+    position: relative;
+    width: auto !important;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .inside h2 {
+    font-size: 150%;
+  }
+  nav.header {
+    width: auto;
+    padding: 15px 20px 20px 20px;
+  }
+  nav.header h1 a {
+    font-size: 50% !important;
+    letter-spacing: 6px;
+    margin: 0;
+  }
+  #breadcrumb {
+    padding: 3px 20px 3px 20px;
+  }
+  #restaurants-list li {
+    margin: 4% 0;
+    width: 100% !important;
+  }
+  #map {
+    height: 150px;
+    width: 100%;
+    background-color: #ccc;
+  }
+  .filter-options {
+    display: block;
+    text-align: center;
+  }
+  .filter-options select {
+    width: 40.6%;
+  }
+  .modal__inner {
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
+  }
 }

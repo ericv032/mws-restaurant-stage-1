@@ -5,7 +5,6 @@ let restaurant;
  * Initialize Google map, called from HTML.
  */
 
-
 window.initMap = () => {
 	fetchRestaurantFromURL((error, restaurant) => {
 		if (error) { // Got an error!
@@ -68,7 +67,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-    // Image attribute
+  // Image attribute
   image.setAttribute('alt', `${restaurant.description}`);
 
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -122,7 +121,7 @@ const fillReviewsHTML = (error, reviews) => {
 };
 
 /**
- * Create review HTML and add it to the webpage.
+ * Create review HTML and add it to the webpage
  */
 const createReviewHTML = (review) => {
   const li = document.createElement('li');

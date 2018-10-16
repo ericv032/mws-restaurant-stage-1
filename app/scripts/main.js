@@ -1,9 +1,6 @@
-let restaurants,
-  neighborhoods,
-  cuisines;
+let restaurants, neighborhoods, cuisines;
 var map;
 var markers = [];
-
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -26,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchNeighborhoods();
   fetchCuisines();
 });
-
 
 /**
  * Set neighborhoods HTML.
@@ -72,7 +68,7 @@ const fillCuisinesHTML = (cuisines = self.cuisines) => {
 /**
  * Initialize leaflet map
  */
-initMap = () => {
+window.initMap = () => {
   self.newMap = L.map('map', {
         center: [40.722216, -73.987501],
         zoom: 12,
@@ -152,7 +148,7 @@ const fillRestaurantsHTML = (restaurants = self.restaurants) => {
 };
 
 /**
- * Create restaurant HTML.
+ * Create HTML restaurant
  */
  createRestaurantHTML = (restaurant) => {
    const li = document.createElement('li');
@@ -161,7 +157,8 @@ const fillRestaurantsHTML = (restaurants = self.restaurants) => {
    image.className = 'restaurant-img';
    image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
-   image.setAttribute('alt', `${restaurant.description}`);
+
+   //image.setAttribute('alt', `${restaurant.description}`);
    li.append(image); // Image attribute
 
    const name = document.createElement('h1');

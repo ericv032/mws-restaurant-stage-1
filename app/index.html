@@ -7,20 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<link rel="stylesheet" href="./css/styles.css">
-  <link rel="preload" as="style" onload="this.rel = 'stylesheet'"
-href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' type='text/css'/>
     <title>Restaurant Reviews</title>
   </head>
   <body>
     <header role="banner">
-      <nav>
+      <nav class="header">
         <h1><a tabindex="0" href=".">Restaurant Reviews</a></h1>
       </nav>
     </header>
     <main class="maincontent" role="main">
       <section id="map-container" role="application" aria-label="Google Map">
-        <div tabindex="0" id="map"></div>
+       <div tabindex="0" id="map"></div>
+
       </section>
       <section>
         <div tabindex="0" class="filter-options">
@@ -42,11 +40,14 @@ href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400ita
     <footer id="footer">
       Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
     </footer>
-    <script defer type="application/javascript" src="./scripts/idb.js"></script>
-    <script defer type="application/javascript" charset="utf-8" src="./scripts/dbhelper.js"></script>
-   <script defer type="application/javascript" charset="utf-8" src="./scripts/main.js"></script>
-   <script defer type="application/javascript" charset="utf-8" src="/register_sw.js"></script>
-   <script defer type="application/javascript" charset="utf-8" src="/sw.js"></script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmHibja0CKoSQjAt3mWiNVs-tEIgiArPw&libraries=places&callback=initMap"></script>
+    <link rel="preload" as="style" onload="this.rel = 'stylesheet'"
+  href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' type='text/css'/>
+
+    <script type="application/javascript" src="./scripts/idb.js" async defer></script>
+    <script type="application/javascript" charset="utf-8" src="./scripts/dbhelper.js" async defer></script>
+   <script type="application/javascript" charset="utf-8" src="./scripts/main.js" async defer></script>
+   <script type="application/javascript" charset="utf-8" src="/register_sw.js" async defer></script>
+   <script type="application/javascript" charset="utf-8" src="/sw.js" async defer></script>
+    <script  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmHibja0CKoSQjAt3mWiNVs-tEIgiArPw&libraries=places&callback=initMap" async defer></script>
   </body>
 </html>

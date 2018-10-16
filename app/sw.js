@@ -57,7 +57,6 @@ self.addEventListener('activate', function (event) {
 
 self.addEventListener('fetch', (event) => {
 	const requestUrl = new URL(event.request.url);
-	// console.log(`Log request url: ${requestUrl.pathname}`);
 	if (requestUrl.pathname.startsWith('/img/')) {
 		event.respondWith(serveImage(event.request));
 		return;
@@ -71,7 +70,6 @@ self.addEventListener('fetch', (event) => {
 			}
 			return fetch(event.request).then(networkResponse => {
 				if (networkResponse.status === 404) {
-					// console.log(networkResponse.status);
 					return;
 				}
 				return caches.open(staticCache).then(cache => {
@@ -88,7 +86,6 @@ self.addEventListener('fetch', (event) => {
 
 serveImage = (request) => {
 
-	// Check if images are in cache if not then store them
 	return caches.open(imagesCache).then(function (cache) {
 		return cache.match(request.url).then(function (response) {
 			if (response) return response;
@@ -104,7 +101,6 @@ serveImage = (request) => {
 self.addEventListener('message', (event) => {
     console.log(event);
 
-    // var messages = JSON.parse(event.data);
     if (event.data.action === 'skipWaiting') {
        self.skipWaiting();
     }
@@ -117,10 +113,8 @@ self.addEventListener('sync', function (event) {
 			db = DBOpenRequest.result;
 			let tx = db.transaction('offline-reviews', 'readwrite');
 			let store = tx.objectStore('offline-reviews');
-			// 1. Get submitted reviews while offline
 			let request = store.getAll();
 			request.onsuccess = function () {
-				// 2. POST offline reviews to network
 				for (let i = 0; i < request.result.length; i++) {
 					fetch(`http://localhost:1337/reviews/`, {
 						body: JSON.stringify(request.result[i]),
@@ -142,7 +136,6 @@ self.addEventListener('sync', function (event) {
 						let store = tx.objectStore('all-reviews');
 						let request = store.add(data);
 						request.onsuccess = function (data) {
-							//TODO: add data (= one review) to view
 							let tx = db.transaction('offline-reviews', 'readwrite');
 							let store = tx.objectStore('offline-reviews');
 							let request = store.clear();
