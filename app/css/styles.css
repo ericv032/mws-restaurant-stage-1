@@ -280,6 +280,7 @@ nav.header h1 a {
 }
 
 #restaurants-list li {
+  position: relative;
   background-color: #fff;
   margin: 1.5% 1.5% 1.5%;
   padding-bottom: 10px;
@@ -404,6 +405,9 @@ nav.header h1 a {
   width: 44.3%;
   margin: 180px 40px 0 40px;
   padding-bottom:60px;
+}
+#restaurant-container figure {
+  position: relative;
 }
 
 #reviews-container {
@@ -572,6 +576,8 @@ textarea {
   border:0;
 }
 
+
+
 /* [Object] Modal
  * =============================== */
 .modal {
@@ -588,7 +594,7 @@ textarea {
   z-index: 9999;
 }
 
-.modal__bg {
+.modal-bg {
   position: absolute;
   top: 0;
   right: 0;
@@ -611,7 +617,7 @@ textarea {
   top: 0;
 }
 
-.modal__inner {
+.modal-inner {
   transition: top .25s ease;
   position: absolute;
   top: -20%;
@@ -629,7 +635,7 @@ textarea {
   z-index: 9999;
 }
 
-.modal__close {
+.modal-close {
   position: absolute;
   right: 2em;
   top: 2em;
@@ -639,8 +645,8 @@ textarea {
   z-index: 9999;
 }
 
-.modal__close:after,
-.modal__close:before {
+.modal-close:after,
+.modal-close:before {
   content: '';
   position: absolute;
   width: 2px;
@@ -653,12 +659,12 @@ textarea {
   top: 0;
 }
 
-.modal__close:hover:after,
-.modal__close:hover:before {
+.modal-close:hover:after,
+.modal-close:hover:before {
   background: #aaa;
 }
 
-.modal__close:before {
+.modal-close:before {
   transform: rotate(-45deg);
 }
 .add-review-btn {
@@ -707,6 +713,29 @@ p img {
   margin: 0 1em 1em 0;
 }
 
+/* Restaurant favorite
+ * =============================== */
+.fav-control {
+  position: absolute;
+  top:10px;
+  right:10px;
+  background: #fff url(../img/fav-heart.jpg) no-repeat;
+    background-position: -70px -70px;
+  border-radius: 200px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  content: '♥';
+  text-align: center;
+  display: inline;
+  cursor: pointer;
+ text-indent: -10000px;
+}
+.fav-control.active {
+  background-position: 0px 0px;
+}
+
+
 /* ================== Responsive ================ */
 
 @media screen and (max-width: 850px) {
@@ -714,6 +743,7 @@ p img {
     text-align: center;
   }
   #restaurants-list li {
+    position: relative;
     margin: 4% 2.8%;
     width: 43%;
   }
@@ -740,6 +770,7 @@ p img {
     margin: 200px 40px 0 40px;
     padding-bottom: 60px;
   }
+
   #reviews-container {
     padding: 60px 0;
     width: auto !important;
@@ -770,6 +801,7 @@ p img {
     padding: 3px 20px 3px 20px;
   }
   #restaurants-list li {
+    position: relative;
     margin: 4% 0;
     width: 100% !important;
   }
@@ -785,7 +817,7 @@ p img {
   .filter-options select {
     width: 40.6%;
   }
-  .modal__inner {
+  .modal-inner {
     width: 90%;
     height: 90%;
     box-sizing: border-box;

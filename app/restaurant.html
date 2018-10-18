@@ -38,6 +38,7 @@
         <h2 role="restaurantname" id="restaurant-name"></h2>
         <picture>
           <figure>
+             <button id="restaurant-fav" aria-label="favorite"></button>
             <img tabindex="3" id="restaurant-img">
             <figcaption>
               <p role="restaurantcuisine" id="restaurant-cuisine"></p>
@@ -58,9 +59,9 @@
 
       <input class="modal-state" id="modal" type="checkbox" />
       <div class="modal">
-        <label class="modal__bg" for="modal"></label>
-        <div class="modal__inner">
-          <label class="modal__close" for="modal"></label>
+        <label class="modal-bg" for="modal"></label>
+        <div class="modal-inner">
+          <label class="modal-close" for="modal"></label>
           <form id="review-form">
             <div>
               <label class="form-label" for="name">Name:</label>

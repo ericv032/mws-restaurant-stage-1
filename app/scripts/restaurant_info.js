@@ -67,7 +67,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  // Image attribute
+    // Image attribute
   image.setAttribute('alt', `${restaurant.description}`);
 
   const cuisine = document.getElementById('restaurant-cuisine');
@@ -79,6 +79,33 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   }
   // fill reviews
   DBHelper.fetchRestaurantReviewsById(restaurant.id, fillReviewsHTML);
+	const favorite = document.getElementById('restaurant-fav');
+	  if (restaurant.is_favorite === 'true') {
+	    favorite.classList.add('active');
+	    favorite.setAttribute('aria-pressed', 'true');
+	    favorite.innerHTML = `Remove ${restaurant.name} as a favorite`;
+	    favorite.title = `Remove ${restaurant.name} as a favorite`;
+	  } else {
+	    favorite.setAttribute('aria-pressed', 'false');
+	    favorite.innerHTML = `Add ${restaurant.name} as a favorite`;
+	    favorite.title = `Add ${restaurant.name} as a favorite`;
+	  }
+	  favorite.addEventListener('click', (evt) => {
+	    evt.preventDefault();
+	    if (favorite.classList.contains('active')) {
+	      favorite.setAttribute('aria-pressed', 'false');
+	      favorite.innerHTML = `Add ${restaurant.name} as a favorite`;
+	      favorite.title = `Add ${restaurant.name} as a favorite`;
+	      DBHelper.unMarkFavorite(restaurant.id);
+	    } else {
+	      favorite.setAttribute('aria-pressed', 'true');
+	      favorite.innerHTML = `Remove ${restaurant.name} as a favorite`;
+	      favorite.title = `Remove ${restaurant.name} as a favorite`;
+	      DBHelper.markFavorite(restaurant.id);
+	    }
+	    favorite.classList.toggle('active');
+	  });
+
 };
 
 /**
