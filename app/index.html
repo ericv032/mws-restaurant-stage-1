@@ -9,7 +9,7 @@
     <link rel="preload" href="./css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <title>Restaurant Reviews</title>
   </head>
-  <body>
+  <body class="home">
     <header role="banner">
       <nav class="header">
         <h1><a tabindex="0" href=".">Restaurant Reviews</a></h1>
@@ -23,7 +23,7 @@
       <section>
         <div tabindex="0" class="filter-options">
           <section>
-            <!--<h2>Filter Results: </h2>-->
+            <h2>Filter Results: </h2>
             <select aria-label="neighborhoods" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" role="region">
           <option value="all">All Neighborhoods</option>
         </select>
