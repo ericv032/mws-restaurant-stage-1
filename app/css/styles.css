@@ -230,6 +230,7 @@ nav.header h1 a {
   height: 400px;
   width: 100%;
   background-color: #ccc;
+  display: none;
 }
 
 .map img {
@@ -239,6 +240,7 @@ nav.header h1 a {
 /* ====================== Restaurant Filtering ====================== */
 
 .filter-options section {
+  position: relative;
   margin: 0 auto;
   width: 88.2%;
   max-width: 1280px;
@@ -247,6 +249,7 @@ nav.header h1 a {
 .filter-options {
   background-color: #3397DB;
   padding: 5px;
+  text-align: left;
 }
 
 .filter-options h2 {
@@ -267,7 +270,19 @@ nav.header h1 a {
   letter-spacing: 0;
   margin: 10px;
   padding: 0 10px;
-  width: 200px;
+  width: 180px;
+}
+.filter-options button {
+  background: rgba(255,255,255, .9) url(../img/map-pin-icon.png) no-repeat;
+  background-size: 20px auto;
+  position: absolute;
+  width:45px;
+  height: 45px;
+  border-radius: 100px;
+  right:30px;
+  top:5px;
+  text-indent: -10000px;
+  background-position: 11px 8px;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -715,15 +730,15 @@ p img {
 
 /* Restaurant favorite
  * =============================== */
-.fav-control {
+#restaurant-fav, .fav-control {
   position: absolute;
   top:10px;
   right:10px;
-  background: #fff url(../img/fav-heart.jpg) no-repeat;
-    background-position: -70px -70px;
+  background: rgba(255,255,255,.5) url(../img/hearts-icons.svg) no-repeat;
+    background-position: 9px 11px;
   border-radius: 200px;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: none;
   content: '♥';
   text-align: center;
@@ -731,10 +746,9 @@ p img {
   cursor: pointer;
  text-indent: -10000px;
 }
-.fav-control.active {
-  background-position: 0px 0px;
+#restaurant-fav.active, .fav-control.active {
+  background-position: 8px -20px;
 }
-
 
 /* ================== Responsive ================ */
 
@@ -812,10 +826,13 @@ p img {
   }
   .filter-options {
     display: block;
-    text-align: center;
+    text-align: left;
   }
   .filter-options select {
-    width: 40.6%;
+    width: 35.6%;
+  }
+  .filter-options button {
+    right:0;
   }
   .modal-inner {
     width: 90%;

@@ -73,12 +73,13 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
-  // fill operating hours
+  // Fill operating hours
   if (restaurant.operating_hours) {
     fillRestaurantHoursHTML();
   }
-  // fill reviews
+  // Fill reviews
   DBHelper.fetchRestaurantReviewsById(restaurant.id, fillReviewsHTML);
+	// Credit to James Priest for the source code
 	const favorite = document.getElementById('restaurant-fav');
 	  if (restaurant.is_favorite === 'true') {
 	    favorite.classList.add('active');

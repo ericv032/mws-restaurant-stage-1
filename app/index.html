@@ -23,15 +23,17 @@
       <section>
         <div tabindex="0" class="filter-options">
           <section>
-            <h2>Filter Results: </h2>
+            <!--<h2>Filter Results: </h2>-->
             <select aria-label="neighborhoods" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" role="region">
           <option value="all">All Neighborhoods</option>
         </select>
             <select aria-label="cuisines" id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
           <option value="all">All Cuisines</option>
         </select>
+          <button onclick="toggle_map()">Google Maps Toggle</button>
           </section>
         </div><!-- .filter-options -->
+
       </section>
       <section class="content-container">
         <ul tabindex="0" id="restaurants-list" role="region" aria-label="restaurants list"></ul>

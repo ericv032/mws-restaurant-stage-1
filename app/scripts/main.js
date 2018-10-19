@@ -25,6 +25,16 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
+ * Map toggle
+ */
+
+const toggle_map = () => {
+if (document.getElementById('map').style.display === 'none')      document.getElementById('map').style.display = 'block'
+else
+document.getElementById('map').style.display = 'none'
+}
+
+/**
  * Set neighborhoods HTML.
  */
 const fillNeighborhoodsHTML = (neighborhoods = self.neighborhoods) => {
@@ -175,7 +185,7 @@ const fillRestaurantsHTML = (restaurants = self.restaurants) => {
    more.innerHTML = 'View Details';
    more.href = DBHelper.urlForRestaurant(restaurant);
    li.append(more)
-
+   // Credit to James Priest for the source code
    const fav = document.createElement('button');
    fav.className = 'fav-control';
    fav.setAttribute('aria-label', 'favorite');
