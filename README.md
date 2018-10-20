@@ -25,17 +25,21 @@ https://github.com/udacity/mws-restaurant-stage-3
 ```
 npm install
 ```
-5. For development run
+5. Install Bower
+```
+bower install
+```
+6. For development run
 ```
 gulp serve
 ```
 The app files are in the app/ directory. The browser will reload everytime a change is saved.
 
-6. For production run
+7. For production run
 ```
 gulp serve:dist
 ```
-7. Navigate to localhost:9000 to view the app.
+8. Navigate to localhost:9000 to view the app.
 
 ## Leaflet.js and Mapbox:
 
