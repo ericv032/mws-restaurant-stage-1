@@ -41,7 +41,8 @@
       "browser": true
     },
     "scripts": {
-  "postinstall": "bower install"
+  "postinstall": "bower install",
+  "bower": "bower"
 },
     "rules": {
       "quotes": [
