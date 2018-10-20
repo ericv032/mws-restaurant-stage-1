@@ -40,6 +40,9 @@
       "node": true,
       "browser": true
     },
+    "scripts": {
+  "postinstall": "bower install"
+},
     "rules": {
       "quotes": [
         2,
