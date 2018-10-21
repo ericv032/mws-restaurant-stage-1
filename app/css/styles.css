@@ -232,9 +232,6 @@ nav.header h1 a {
   background-color: #ccc;
 }
 
-.home #map {
-  display: none;
-}
 
 .map img {
   width: 100%
@@ -277,15 +274,15 @@ nav.header h1 a {
 }
 .filter-options button {
   background: rgba(255,255,255, .9) url(../img/map-pin-icon.png) no-repeat;
-  background-size: 20px auto;
+  background-size: 17px auto;
   position: absolute;
-  width:45px;
-  height: 45px;
+  width:40px;
+  height: 40px;
   border-radius: 100px;
   right:30px;
-  top:5px;
+  top:6px;
   text-indent: -10000px;
-  background-position: 11px 8px;
+  background-position: 10px 8px;
 }
 
 /* ====================== Restaurant Listing ====================== */
