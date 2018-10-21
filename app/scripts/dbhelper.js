@@ -289,7 +289,7 @@ static unMarkFavorite(id) {
 			const store = tx.objectStore('OfflineReviews');
 			store.getAll().then(OfflineReviews => {
 				console.log(OfflineReviews);
-				offlineReviews.forEach(review => {
+				OfflineReviews.forEach(review => {
 					DBHelper.submitReview(review);
 				})
 				DBHelper.clearOfflineReviews();
@@ -302,7 +302,7 @@ static unMarkFavorite(id) {
 	static clearOfflineReviews() {
 		DBHelper.dbPromise.then(db => {
 			const tx = db.transaction('OfflineReviews', 'readwrite');
-			const store = tx.objectStore('fflineReviews').clear();
+			const store = tx.objectStore('OfflineReviews').clear();
 		})
 		return;
 	}

@@ -25,7 +25,6 @@ const urlsToCache = [
 	      '/img/8.jpg',
 	      '/img/9.jpg',
 	      '/img/10.jpg',
-	      '/offline.html',
 	      '/404.html',
 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
     ];
@@ -111,8 +110,8 @@ self.addEventListener('sync', function (event) {
 		const DBOpenRequest = indexedDB.open('restaurants', 1);
 		DBOpenRequest.onsuccess = function (e) {
 			db = DBOpenRequest.result;
-			let tx = db.transaction('offline-reviews', 'readwrite');
-			let store = tx.objectStore('offline-reviews');
+			let tx = db.transaction('OfflineReviews', 'readwrite');
+			let store = tx.objectStore('OfflineReviews');
 			let request = store.getAll();
 			request.onsuccess = function () {
 				for (let i = 0; i < request.result.length; i++) {
@@ -132,18 +131,18 @@ self.addEventListener('sync', function (event) {
 						return response.json();
 					})
 					.then(data => {
-						let tx = db.transaction('all-reviews', 'readwrite');
-						let store = tx.objectStore('all-reviews');
+						let tx = db.transaction('AllReviews', 'readwrite');
+						let store = tx.objectStore('AllReviews');
 						let request = store.add(data);
 						request.onsuccess = function (data) {
-							let tx = db.transaction('offline-reviews', 'readwrite');
-							let store = tx.objectStore('offline-reviews');
+							let tx = db.transaction('OfflineReviews', 'readwrite');
+							let store = tx.objectStore('OfflineReviews');
 							let request = store.clear();
 							request.onsuccess = function () {
 								console.log('this runs but empty');
 							 };
 							request.onerror = function (error) {
-								console.log('Unable to clear offline-reviews objectStore', error);
+								console.log('Unable to clear offline reviews objectStore', error);
 							}
 						};
 						request.onerror = function (error) {
@@ -163,4 +162,5 @@ self.addEventListener('sync', function (event) {
 			console.log(e);
 		}
 	}
+
 });

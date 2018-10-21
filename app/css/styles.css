@@ -638,7 +638,7 @@ textarea {
 .modal-inner {
   transition: top .25s ease;
   position: absolute;
-  top: -20%;
+  top: 5px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -648,9 +648,9 @@ textarea {
   background: #fff;
   border-radius: 5px;
   padding: 30px;
-  height: 65%;
+  height: 630px;
   overflow: hidden;
-  z-index: 9999;
+  z-index: 9999 !important;
 }
 
 .modal-close {
@@ -839,7 +839,7 @@ p img {
   }
   .modal-inner {
     width: 90%;
-    height: 90%;
+    height: 650px;
     box-sizing: border-box;
   }
 }
