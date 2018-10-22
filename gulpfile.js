@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync').create();
-//const browserfy = require('browserfy')
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
