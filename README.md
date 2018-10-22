@@ -18,10 +18,10 @@ https://github.com/udacity/mws-restaurant-stage-3
 
 ## Installing
 
-1. Download the server.
-2. Start server by running node server on root folder of server.
-3. Download this repo.
-4. Install the dependencies.
+1. Download the server
+2. Start server by running node server on root folder of server
+3. Download this repo
+4. Install project dependencies
 ```
 npm install
 ```
@@ -38,7 +38,7 @@ The app files are in the app/ directory. The browser will reload everytime a cha
 ```
 gulp serve:dist
 ```
-7. Navigate to localhost:9000 to view the app.
+7. Navigate to localhost:9000 to view the app
 
 ## Leaflet.js and Mapbox:
 
